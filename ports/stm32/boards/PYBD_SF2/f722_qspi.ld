@@ -48,6 +48,10 @@ SECTIONS
     .text_ext :
     {
         . = ALIGN(4);
+/*        *code/*(.text* .rodata*)             */
+        *code/compare/*(.text* .rodata*)     
+        *code/user/*(.text* .rodata*)     
+        *frozen_content.o(.text* .rodata*)    
         *lib/btstack/*(.text* .rodata*)
         *lib/mbedtls/*(.text* .rodata*)
         *lib/mynewt-nimble/*(.text* .rodata*)
