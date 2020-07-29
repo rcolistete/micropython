@@ -270,6 +270,17 @@ ifeq ($(ESPIDF_CURHASH),$(ESPIDF_SUPHASH_V4))
 CFLAGS += -DMICROPY_ESP_IDF_4=1
 endif
 
+# Configure floating point support
+ifeq ($(MICROPY_FLOAT_IMPL),double)
+CFLAGS += -DMICROPY_FLOAT_IMPL=MICROPY_FLOAT_IMPL_DOUBLE
+else
+ifeq ($(MICROPY_FLOAT_IMPL),none)
+CFLAGS += -DMICROPY_FLOAT_IMPL=MICROPY_FLOAT_IMPL_NONE
+else
+CFLAGS += -DMICROPY_FLOAT_IMPL=MICROPY_FLOAT_IMPL_FLOAT
+endif
+endif
+
 # this is what ESPIDF uses for c++ compilation
 CXXFLAGS = -std=gnu++11 $(CFLAGS_COMMON) $(INC) $(INC_ESPCOMP)
 
@@ -384,7 +395,7 @@ OBJ_MP += $(addprefix $(BUILD)/, $(LIB_SRC_C:.c=.o))
 OBJ_MP += $(addprefix $(BUILD)/, $(DRIVERS_SRC_C:.c=.o))
 
 # Only enable this for the MicroPython source: ignore warnings from esp-idf.
-$(OBJ_MP): CFLAGS += -Wdouble-promotion -Wfloat-conversion
+#$(OBJ_MP): CFLAGS += -Wdouble-promotion -Wfloat-conversion
 
 # List of sources for qstr extraction
 SRC_QSTR += $(SRC_C) $(EXTMOD_SRC_C) $(LIB_SRC_C) $(DRIVERS_SRC_C)
