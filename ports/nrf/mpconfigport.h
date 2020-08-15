@@ -338,6 +338,9 @@ extern const struct _mp_obj_module_t ble_module;
 
 #define MP_PLAT_PRINT_STRN(str, len) mp_hal_stdout_tx_strn_cooked(str, len)
 
+// We need an implementation of the log2 function which is not a macro
+#define MP_NEED_LOG2 (1)
+
 // We need to provide a declaration/definition of alloca()
 #include <alloca.h>
 
