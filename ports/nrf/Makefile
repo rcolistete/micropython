@@ -156,6 +156,14 @@ SRC_LIB += $(addprefix lib/,\
         libm/atanf.c \
         libm/atan2f.c \
         libm/roundf.c \
+        libm/acoshf.c \
+        libm/asinhf.c \
+        libm/atanhf.c \
+        libm/log1pf.c \
+        libm/sf_erf.c \
+        libm/erf_lgamma.c \
+        libm/wf_lgamma.c \
+        libm/wf_tgamma.c \
 	)
 
 endif
@@ -181,6 +189,15 @@ SRC_LIB += $(addprefix lib/,\
         libm/asinfacosf.c \
         libm/atanf.c \
         libm/atan2f.c \
+        libm/roundf.c \
+        libm/acoshf.c \
+        libm/asinhf.c \
+        libm/atanhf.c \
+        libm/log1pf.c \
+        libm/sf_erf.c \
+        libm/erf_lgamma.c \
+        libm/wf_lgamma.c \
+        libm/wf_tgamma.c \
         )
 
 SRC_NRFX += $(addprefix lib/nrfx/drivers/src/,\
