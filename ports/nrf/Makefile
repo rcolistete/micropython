@@ -134,7 +134,7 @@ endif
 
 LIBS = \
 
-ifeq ($(MCU_VARIANT), nrf52)
+ifeq ($(MCU_VARIANT), $(filter $(MCU_VARIANT),nrf51 nrf52))
 
 SRC_LIB += $(addprefix lib/,\
         libm/math.c \
