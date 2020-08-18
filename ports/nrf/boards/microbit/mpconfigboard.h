@@ -55,3 +55,5 @@
 
 // micro:bit music pin
 #define MICROPY_HW_MUSIC_PIN        (3)
+
+#define MICROPY_MBFS                (0)
